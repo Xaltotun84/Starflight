@@ -1,0 +1,75 @@
+equipaggiamneto
+
+riguardare starflight
+
+ingegnere motore-potenza-consumo carburante
+navigatore evasione-sistemi-altro
+scienziato biomi
+comunicazioni scanner-analisi pianeti-sistemi
+medico cura pg
+
+
+simbolo di berserk
+
+
+
+Ciao... allora... secondo me devi prima capire cosa fa la funzione lerp e perche' tu ottieni una accelerazione o decelerazione quando la applichi in una funzione process...
+[02:39]
+la funzione lerp si presenta cosi':
+lerp(value_1 : float, value_2 : float, average[0.0 -1.0])
+
+Nanaqui — Oggi alle 02:49
+l'argomento importante da capire e' quello che ho indicato (impropriamente) con "average"
+[02:51]
+in sostanza in una funzione lerp tu metti i primi due argomenti (value_1, value_2) e il terzo argomento interpola i primi due valori in questo modo:
+se tu poni 0 come come terzo argomento, la funzione lerp ti restiuisce il primo argomento(value_1); se tu metti 1.0 invece, la funzione lerp ti restiuisce il secondo argomento(value_2); valori intermedi tra 0 e 1 al terzo argomento faranno si che la funzione lerp ti restiuisca o valori piu' vicini al primo argomento(value_1) oppure valori piu' vicini al secondo argomento(value_2)
+Ti faccio un esempio: (modificato)
+[02:57]
+lerp(0.0, 4.0, 0) -> return value 0.0
+
+lerp(0.0, 4.0, 1) -> return value 4.0
+
+lerp(0.0, 4.0, 0.5) -> return value 2.0
+
+lerp(0.0, 4.0, 0.2) -> return value 0.8 (modificato)
+
+Nanaqui — Oggi alle 03:04
+come vedi, qui non e' che si accelera o decelera... ma e' quando la usi in un processo (che avviene a 60 fps) che la funzione lerp fa la sua magia (modificato)
+[03:07]
+se tu ad esempio scrivi:
+
+"
+	  func physics_process(delta):
+			speed += direction * 0.1
+			velocity.x = lerp(velocity.x, speed, 0.5)
+" (modificato)
+[03:07]
+che succede?
+
+Nanaqui — Oggi alle 03:15
+poniamo il caso che il tuo personaggio stia fermo, ergo, al sua velocity.x == 0...
+se ad ogni call della funzione physics_process, tu aggiung 0.1 alla speed, accade che il secondo argomento della funzione lerp, ad ogni frame, aumenta di 0.1 (diventa sempre piu' grande, se positivo, o sempre piu' piccolo, se negativo)
+
+Questo significa che ad ogni frame la velocity andra' sempre ad aumentare, quel tanto in piu' definito dal terzo argomento, il quale, in questo contesto, diventa il "peso", cioe' di quanto il valore della tua velocity.x si avvicina al nuovo valore della speed
+
+Nota che, poiche' la funzione lerp restiutisce un valore, ha senso prendere questo valore e farlo diventare il nuovo valore della velocity ad ogni frame, in modo tale che non ha importanza specificare se io sto accelerando o decelerando, ma questo avviene in automatico e in base alla direzione (ad ogni frame puoi aggiungere o una quantita' positiva, se ti muovi verso destra, o una quantita' negagtiva, se ti muovi verso sinistra) (modificato)
+[03:16]
+Forse avrai notato che non esiste un parametro nella funzione lerp che stabilisce un limite per cui poi la velocity.x si setta su un valore predefinito. (modificato)
+[03:16]
+per questo, subito dopo aver "lerpato" devi "clampare"... eheheh
+[03:16]
+quindi, per completezza:
+
+  func physics_process(delta):
+			speed += direction * 0.1
+			velocity.x = lerp(velocity.x, speed, 0.5)
+			velocity.x = clamp(velocity.x, -max_speed, max_speed) (modificato)
+[03:19]
+ricapitolando: la funzione lerp e' una funzione tanto semplice, quanto efficace se usata pero' nel contesto giusto. 
+ho volutamente omesso di chiamare il terzo argomento il "peso" della funzione lerp, perche' esso e' tale solo se lo usi nel contesto di un process...
+
+
+
+Codice porta modificato
+onready var animated = get_node("Contenitore_aree_fade/Fade/ColorFade/AnimationPlayer")
+onready var CAP_animat = get_node("Capitano/AnimatedSprite")
