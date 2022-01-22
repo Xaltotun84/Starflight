@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resource/Spazioporto/Equipaggio/Umani.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Scienza = 50
+Navigatore = 30
+Ingegnere = 30
+Comunicazioni = 30
+Medico = 30
+Vita = 100
+Razza = "Umani"
+Punti_AP = 9
+Livello = 1
+Tipo = "Caucasico"
+Altezza = 2
+Peso = 80

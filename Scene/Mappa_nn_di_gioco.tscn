@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Grafica/Mappa/starmap-merged.png" type="Texture" id=1]
+
+[node name="Mappa" type="Node2D"]
+
+[node name="starmap-merged" type="Sprite" parent="."]
+scale = Vector2( 1.11801, 0.692427 )
+texture = ExtResource( 1 )
+centered = false

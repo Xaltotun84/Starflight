@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resource/Nave/Motori/Motore_Livello_2.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+nome = "Motore 2"
+costo = 5000
+potenza_motore = 2000
+massa = 1000

@@ -1,0 +1,636 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Font/Fixedsys500c.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Equipaggio/Equipaggio.gd" type="Script" id=2]
+[ext_resource path="res://Grafica/Pianeti/mare.png" type="Texture" id=3]
+[ext_resource path="res://Grafica/Pianeti/pianure.png" type="Texture" id=4]
+[ext_resource path="res://Grafica/Pianeti/montagne.png" type="Texture" id=5]
+[ext_resource path="res://Grafica/Menu/Tabs_Equipaggio.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Spazioporto/TabEquipaggio.gd" type="Script" id=7]
+[ext_resource path="res://Grafica/Menu/Simbolo.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/colors/icon_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/icon_color_pressed = Color( 0, 0, 0, 1 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="Equipaggio" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.0888889
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Simbolo" type="Sprite" parent="HBoxContainer/VBoxContainer"]
+position = Vector2( 20, 22 )
+scale = Vector2( 0.625, 0.6875 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 64, 64 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Simbolo" type="Sprite" parent="HBoxContainer/VBoxContainer/Simbolo"]
+position = Vector2( -1.07288e-05, -0.727219 )
+scale = Vector2( 0.225352, 0.129226 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="HBoxContainer/VBoxContainer"]
+position = Vector2( 380, 21.5 )
+scale = Vector2( 2.65625, 0.671875 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 256, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.109804, 0.176471, 0.32549, 1 )
+position = Vector2( 360, 246.5 )
+scale = Vector2( 2.8125, 6.35938 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+self_modulate = Color( 1, 0.917647, 0.917647, 1 )
+anchor_left = 0.0347222
+anchor_top = 0.0888889
+anchor_right = 0.965278
+anchor_bottom = 0.806667
+margin_left = -1.90735e-06
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="TabsEquipaggio" type="Sprite" parent="TabContainer"]
+position = Vector2( 336, 174 )
+scale = Vector2( 1, 0.986667 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tabs" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 1 )
+scrolling_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Numero_tabs" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.135952
+anchor_top = 0.0696864
+anchor_right = 0.175227
+anchor_bottom = 0.118467
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Vita" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.777945
+anchor_top = 0.0662021
+anchor_right = 0.81571
+anchor_bottom = 0.114983
+text = "100"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Razza" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.729607
+anchor_top = 0.146341
+anchor_right = 0.81571
+anchor_bottom = 0.195122
+text = "Umano"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="PF" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.848942
+anchor_top = 0.229965
+anchor_right = 0.935045
+anchor_bottom = 0.278746
+text = "10"
+align = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Livello" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.770393
+anchor_top = 0.313589
+anchor_right = 0.794562
+anchor_bottom = 0.362369
+text = "20"
+align = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Exp" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.694864
+anchor_top = 0.397212
+anchor_right = 0.848942
+anchor_bottom = 0.445993
+margin_bottom = 7.62939e-06
+text = "0"
+align = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Sci_p" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.317221
+anchor_top = 0.278746
+anchor_right = 0.356496
+anchor_bottom = 0.327526
+margin_left = -1.52588e-05
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Nav_P" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.31722
+anchor_top = 0.358885
+anchor_right = 0.356495
+anchor_bottom = 0.407665
+margin_top = 1.0
+margin_bottom = 1.0
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Ing_P" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.31722
+anchor_top = 0.442509
+anchor_right = 0.356495
+anchor_bottom = 0.491289
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Com_P" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.31722
+anchor_top = 0.526132
+anchor_right = 0.356495
+anchor_bottom = 0.574913
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Med_P" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.31722
+anchor_top = 0.609756
+anchor_right = 0.356495
+anchor_bottom = 0.658536
+margin_bottom = -1.52588e-05
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Altezza" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.362538
+anchor_top = 0.822299
+anchor_right = 0.401813
+anchor_bottom = 0.874564
+margin_left = 1.52588e-05
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Peso" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.362538
+anchor_top = 0.905923
+anchor_right = 0.401813
+anchor_bottom = 0.958188
+margin_left = 1.52588e-05
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Tipo" type="Label" parent="TabContainer/Tabs"]
+anchor_left = 0.135952
+anchor_top = 0.74216
+anchor_right = 0.294562
+anchor_bottom = 0.79094
+text = "ciao"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Tabs2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+scrolling_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tabs3" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+scrolling_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tabs4" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+scrolling_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tabs5" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+scrolling_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.226389
+anchor_top = 0.475556
+anchor_right = 0.777778
+anchor_bottom = 0.606667
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 0.487805
+margin_bottom = 1.0
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Testo" type="VBoxContainer" parent="Panel/ReferenceRect"]
+process_priority = 1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ReferenceRect/Testo"]
+margin_right = 198.0
+margin_bottom = 14.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ReferenceRect/Testo/HBoxContainer"]
+process_priority = 1
+margin_left = 35.0
+margin_right = 162.0
+margin_bottom = 14.0
+text = "Immettere il nome:"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Testo2" type="VBoxContainer" parent="Panel/ReferenceRect2"]
+process_priority = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.585367
+rect_pivot_offset = Vector2( 100, 0 )
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="LineEdit" type="LineEdit" parent="Panel/ReferenceRect2/Testo2"]
+margin_right = 198.0
+margin_bottom = 24.0
+context_menu_enabled = false
+caret_blink = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Scelta_razza" type="ReferenceRect" parent="Panel"]
+anchor_top = -0.915255
+anchor_right = 1.0
+anchor_bottom = 1.77966
+margin_bottom = -7.62939e-06
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Panel/Scelta_razza"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Scelta_razza/Panel"]
+modulate = Color( 1, 1, 1, 0.45098 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Panel/Scelta_razza/Panel/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 0.283019
+text = "Scegliere la razza del primo elemento equipaggio! Ogni razza ha un certo numero di punti per le proprie abilità."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Umani" type="CheckBox" parent="Panel/Scelta_razza/Panel"]
+anchor_left = 0.0503778
+anchor_top = 0.566038
+anchor_right = 0.2267
+anchor_bottom = 0.716982
+margin_top = 7.62939e-06
+text = "Umani"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Nani" type="CheckBox" parent="Panel/Scelta_razza/Panel"]
+anchor_left = 0.251889
+anchor_top = 0.566038
+anchor_right = 0.428211
+anchor_bottom = 0.716982
+margin_top = 7.62939e-06
+text = "Nani"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Popup" type="Popup" parent="Panel"]
+anchor_left = 0.1875
+anchor_top = 0.42683
+anchor_right = 0.812499
+anchor_bottom = 0.890245
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Panel/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Panel/Popup/Panel/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Non è stato specificato alcun nome!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Timer" type="Timer" parent="Panel"]
+wait_time = 5.0
+autostart = true
+
+[node name="Esci" type="Button" parent="."]
+margin_left = 608.0
+margin_top = 405.0
+margin_right = 696.0
+margin_bottom = 425.0
+text = "Esci"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchor_left = 0.211806
+anchor_top = 0.846667
+anchor_right = 0.802083
+anchor_bottom = 0.98
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+margin_right = 91.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 59.0
+
+[node name="Precedente" type="Button" parent="HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 91.0
+margin_bottom = 20.0
+theme = SubResource( 2 )
+text = "PRECEDENTE"
+
+[node name="Aggiungi" type="Button" parent="HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 91.0
+margin_bottom = 44.0
+theme = SubResource( 2 )
+text = "AGGIUNGI"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer2"]
+margin_left = 95.0
+margin_right = 176.0
+margin_bottom = 59.0
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer2/HBoxContainer3"]
+margin_right = 81.0
+margin_bottom = 59.0
+
+[node name="Prossimo" type="Button" parent="HBoxContainer2/HBoxContainer3/VBoxContainer2"]
+margin_right = 81.0
+margin_bottom = 20.0
+theme = SubResource( 2 )
+text = "PROSSIMO"
+
+[node name="Cancella" type="Button" parent="HBoxContainer2/HBoxContainer3/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 81.0
+margin_bottom = 44.0
+theme = SubResource( 2 )
+text = "CANCELLA"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2"]
+margin_left = 180.0
+margin_right = 306.0
+margin_bottom = 59.0
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer2/HBoxContainer2"]
+margin_right = 126.0
+margin_bottom = 59.0
+
+[node name="Assegna" type="Button" parent="HBoxContainer2/HBoxContainer2/VBoxContainer3"]
+margin_right = 126.0
+margin_bottom = 20.0
+theme = SubResource( 2 )
+text = "ASSEGNA"
+
+[node name="Addestramento" type="Button" parent="HBoxContainer2/HBoxContainer2/VBoxContainer3"]
+margin_top = 24.0
+margin_right = 126.0
+margin_bottom = 44.0
+theme = SubResource( 2 )
+text = "ADDESTRAMENTO"
+
+[connection signal="text_entered" from="Panel/ReferenceRect2/Testo2/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="Panel/Scelta_razza/Panel/Umani" to="." method="_on_Umani_pressed"]
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Esci" to="." method="_on_Esci_pressed"]
+[connection signal="pressed" from="HBoxContainer2/HBoxContainer/VBoxContainer/Aggiungi" to="." method="_on_Aggiungi_pressed"]

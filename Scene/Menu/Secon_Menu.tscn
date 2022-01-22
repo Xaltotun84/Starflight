@@ -1,0 +1,165 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Menu/Secon_Menu.gd" type="Script" id=1]
+[ext_resource path="res://Grafica/Menu/Cornice.png" type="Texture" id=2]
+
+[node name="Secon_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -464.0
+margin_bottom = -226.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Cornice" type="Sprite" parent="."]
+scale = Vector2( 4, 3.51563 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="Cornice"]
+modulate = Color( 0.0862745, 0.0431373, 0.0431373, 0.352941 )
+anchor_left = 0.09375
+anchor_top = 0.09375
+anchor_right = 0.90625
+anchor_bottom = 0.90625
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Cornice/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+anchor_left = 0.3125
+anchor_top = 0.178571
+anchor_right = 0.6875
+anchor_bottom = 0.821429
+margin_top = 5.34058e-05
+margin_bottom = 4.57764e-05
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Popup"]
+anchor_top = 0.111111
+anchor_right = 1.0
+anchor_bottom = 0.916667
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Riprendere" type="Button" parent="Popup/VBoxContainer3"]
+margin_right = 96.0
+margin_bottom = 20.0
+text = "RIPRENDERE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Salva" type="Button" parent="Popup/VBoxContainer3"]
+margin_top = 24.0
+margin_right = 96.0
+margin_bottom = 44.0
+action_mode = 0
+text = "SALVA"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Carica" type="Button" parent="Popup/VBoxContainer3"]
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 68.0
+action_mode = 0
+text = "CARICA"
+clip_text = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Opzioni" type="Button" parent="Popup/VBoxContainer3"]
+margin_top = 72.0
+margin_right = 96.0
+margin_bottom = 92.0
+action_mode = 0
+text = "OPZIONI"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Esci" type="Button" parent="Popup/VBoxContainer3"]
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 116.0
+toggle_mode = true
+action_mode = 0
+text = "ESCI"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Popup/VBoxContainer3/Esci"]
+anchor_left = -0.510417
+anchor_top = 1.2
+anchor_right = 1.48958
+anchor_bottom = 2.4
+margin_left = 1.0
+margin_right = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup"]
+margin_left = -48.0
+margin_top = 136.0
+margin_right = 143.0
+margin_bottom = 156.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Esci dal gioco" type="Button" parent="Popup/HBoxContainer"]
+margin_right = 39.0
+margin_bottom = 20.0
+action_mode = 0
+text = "ESCI"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Menu principale" type="Button" parent="Popup/HBoxContainer"]
+margin_left = 43.0
+margin_right = 173.0
+margin_bottom = 20.0
+action_mode = 0
+text = "MENU PRINCIPALE"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="Popup/VBoxContainer3/Riprendere" to="." method="_on_Riprendere_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer3/Salva" to="." method="_on_Salva_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer3/Carica" to="." method="_on_Carica_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer3/Opzioni" to="." method="_on_Opzioni_pressed"]
+[connection signal="toggled" from="Popup/VBoxContainer3/Esci" to="." method="_on_Esci_toggled"]
+[connection signal="pressed" from="Popup/HBoxContainer/Esci dal gioco" to="." method="_on_Esci_dal_gioco_pressed"]
+[connection signal="pressed" from="Popup/HBoxContainer/Menu principale" to="." method="_on_Menu_principale_pressed"]

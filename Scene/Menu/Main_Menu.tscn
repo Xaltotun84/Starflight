@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Grafica/Menu/Final FULL FRAME.2.jpg" type="Texture" id=1]
+[ext_resource path="res://Grafica/Menu/Titolo.png" type="Texture" id=4]
+[ext_resource path="res://Grafica/Menu/Button_1.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Menu/Main_Menu.gd" type="Script" id=6]
+[ext_resource path="res://Grafica/Menu/Button_2.png" type="Texture" id=7]
+[ext_resource path="res://Grafica/Menu/Button_3.png" type="Texture" id=8]
+[ext_resource path="res://Grafica/Menu/Button_4.png" type="Texture" id=9]
+[ext_resource path="res://Scene/Menu/Controllo_nome.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Font/Fixedsys500c.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = SubResource( 1 )
+
+[node name="Main_Menu" type="Node"]
+script = ExtResource( 6 )
+
+[node name="Ammasso Stellare" type="Sprite" parent="."]
+light_mask = -2147483647
+scale = Vector2( 0.375, 0.416667 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.0333333
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 9.53674e-07
+size_flags_horizontal = 4
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+margin_left = 122.0
+margin_top = 50.0
+margin_right = 598.0
+margin_bottom = 86.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer4"]
+margin_right = 476.0
+margin_bottom = 36.0
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+margin_top = 196.0
+margin_right = 720.0
+margin_bottom = 320.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nuova_partita" type="Button" parent="VBoxContainer3"]
+margin_left = 264.0
+margin_right = 456.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+toggle_mode = true
+icon = ExtResource( 5 )
+flat = true
+
+[node name="Carica" type="Button" parent="VBoxContainer3"]
+margin_left = 264.0
+margin_top = 32.0
+margin_right = 456.0
+margin_bottom = 60.0
+size_flags_horizontal = 4
+disabled = true
+action_mode = 0
+icon = ExtResource( 7 )
+flat = true
+clip_text = true
+
+[node name="Opzioni" type="Button" parent="VBoxContainer3"]
+margin_left = 264.0
+margin_top = 64.0
+margin_right = 456.0
+margin_bottom = 92.0
+size_flags_horizontal = 4
+action_mode = 0
+icon = ExtResource( 8 )
+flat = true
+clip_text = true
+
+[node name="Esci" type="Button" parent="VBoxContainer3"]
+margin_left = 264.0
+margin_top = 96.0
+margin_right = 456.0
+margin_bottom = 124.0
+size_flags_horizontal = 4
+action_mode = 0
+icon = ExtResource( 9 )
+flat = true
+clip_text = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.0138889
+anchor_top = 0.933333
+anchor_right = 0.102778
+anchor_bottom = 0.977778
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_top = 3.0
+margin_right = 64.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "V. 1.0.0"
+valign = 1
+
+[node name="Control" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = 150.0
+margin_top = 250.0
+margin_right = 150.0
+margin_bottom = 250.0
+
+[connection signal="pressed" from="VBoxContainer3/Nuova_partita" to="." method="_on_Nuova_partita_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Carica" to="." method="_on_Carica_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Opzioni" to="." method="_on_Opzioni_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Esci" to="." method="_on_Esci_pressed"]

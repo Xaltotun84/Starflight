@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resource/Nave/Scudi/Scudo_Livello_1.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+nome = "Scudo Leggero"
+costo = 1000
+scudo = 500
+massa = 100

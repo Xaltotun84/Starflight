@@ -1,0 +1,139 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Menu/Controllo_nome.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+modulate = Color( 1, 1, 1, 0.619608 )
+anchor_right = 0.555556
+anchor_bottom = 0.182222
+margin_right = -3.05176e-05
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 0.487805
+margin_bottom = 1.0
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Testo" type="VBoxContainer" parent="Panel/ReferenceRect"]
+process_priority = 1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ReferenceRect/Testo"]
+margin_top = 3.0
+margin_right = 200.0
+margin_bottom = 17.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ReferenceRect/Testo/HBoxContainer"]
+process_priority = 1
+margin_left = 12.0
+margin_right = 188.0
+margin_bottom = 14.0
+text = "Scegli il nome del capitano!"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Testo2" type="VBoxContainer" parent="Panel/ReferenceRect2"]
+process_priority = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.585367
+rect_pivot_offset = Vector2( 100, 0 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineEdit" type="LineEdit" parent="Panel/ReferenceRect2/Testo2"]
+margin_right = 200.0
+margin_bottom = 24.0
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+
+[node name="Popup" type="Popup" parent="Panel"]
+visible = true
+anchor_left = 0.1875
+anchor_top = 0.42683
+anchor_right = 0.812499
+anchor_bottom = 0.890245
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Panel/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Panel/Popup/Panel/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Non è stato specificato alcun nome!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Timer" type="Timer" parent="Panel"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="text_entered" from="Panel/ReferenceRect2/Testo2/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_Timer_timeout"]

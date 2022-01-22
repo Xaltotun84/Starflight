@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scene/Spazioporto/Equipaggio.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Spazioporto/Porte.gd" type="Script" id=2]
+
+[node name="Contenitore_aree_apertura_porte" type="Node"]
+
+[node name="Porta" type="Area2D" parent="."]
+position = Vector2( 440, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 0, -15.5359, 99.7551, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_equi" type="Area2D" parent="."]
+position = Vector2( 705, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+scene_to_load = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_equi"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 1.53467, -15.5359, 99.755, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_cap" type="Area2D" parent="."]
+position = Vector2( 927, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_cap"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 1.53467, -15.5359, 99.755, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_por" type="Area2D" parent="."]
+position = Vector2( 1359.5, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_por"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 0.767334, -15.5359, 98.9875, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_mer" type="Area2D" parent="."]
+position = Vector2( 1601, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_mer"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 1.53467, -15.5359, 99.7549, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_banc" type="Area2D" parent="."]
+position = Vector2( 1916.5, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_banc"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 0.767334, -15.5359, 98.9878, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_can" type="Area2D" parent="."]
+position = Vector2( 2171, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_can"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 1.53467, -15.5359, 99.7549, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[node name="Porta_war" type="Area2D" parent="."]
+position = Vector2( 2447, 355.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Porta_war"]
+scale = Vector2( 0.651596, 0.997685 )
+build_mode = 1
+polygon = PoolVector2Array( 0, -15.5359, 99.7551, -5.51276, 0, 10.5244, -96.6857, -5.51276 )
+
+[connection signal="body_entered" from="Porta" to="Porta" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_equi" to="Porta_equi" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_cap" to="Porta_cap" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_por" to="Porta_por" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_mer" to="Porta_mer" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_banc" to="Porta_banc" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_can" to="Porta_can" method="_on_Porta_body_entered"]
+[connection signal="body_entered" from="Porta_war" to="Porta_war" method="_on_Porta_body_entered"]

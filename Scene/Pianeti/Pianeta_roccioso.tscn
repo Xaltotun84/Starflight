@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 64.0312
+
+[node name="Pianeta" type="Area2D"]
+gravity_point = true
+gravity_distance_scale = 64.0
+gravity_vec = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

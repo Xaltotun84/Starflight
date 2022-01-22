@@ -1,0 +1,313 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Font/Fixedsys500c.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Gui/GUI_Scienza.gd" type="Script" id=2]
+[ext_resource path="res://Grafica/Menu/radar-sprite.png" type="Texture" id=3]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_color = Color( 0.878431, 0.0392157, 0.0392157, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 193, 0, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 386, 0, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 579, 0, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 194, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 193, 194, 193, 194 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 386, 194, 193, 194 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "radar",
+"speed": 7.0
+} ]
+
+[sub_resource type="Animation" id=12]
+resource_name = "Radar"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimatedSprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gui_Generale" type="ReferenceRect" parent="."]
+anchor_left = 0.7
+anchor_top = 0.3
+anchor_right = 0.975
+anchor_bottom = 0.657143
+margin_top = -7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Menu" type="Label" parent="Gui_Generale"]
+anchor_right = 1.0
+anchor_bottom = 0.141844
+margin_right = -7.62939e-06
+text = "MENU"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Scienziato" type="Button" parent="Gui_Generale" groups=["Menu"]]
+anchor_left = 0.0909091
+anchor_top = 0.25
+anchor_right = 0.90303
+anchor_bottom = 0.45
+group = SubResource( 1 )
+text = "Ufficiale scientifico"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ingenere" type="Button" parent="Gui_Generale" groups=["Menu"]]
+anchor_left = 0.0909091
+anchor_top = 0.49
+anchor_right = 0.90303
+anchor_bottom = 0.69
+text = "Ufficiale ingegnere"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Combattimento" type="Button" parent="Gui_Generale" groups=["Menu"]]
+anchor_left = 0.00606061
+anchor_top = 0.73
+anchor_right = 0.993939
+anchor_bottom = 0.93
+margin_left = 5.96046e-08
+text = "Ufficiale combattimenti"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Comunicazioni" type="Button" parent="Gui_Generale" groups=["Scienziato"]]
+visible = false
+anchor_left = 0.00606061
+anchor_top = 0.25
+anchor_right = 0.993939
+anchor_bottom = 0.45
+margin_left = 5.96046e-08
+text = "Comunicazioni"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "Scan segnali audio, richieste di aiuto,
+parlare con altre navi,
+richieste di atterraggio"
+}
+
+[node name="Scan_Sistema" type="Button" parent="Gui_Generale" groups=["Scienziato"]]
+visible = false
+anchor_left = 0.00606061
+anchor_top = 0.49
+anchor_right = 0.993939
+anchor_bottom = 0.69
+margin_left = 5.96046e-08
+text = "Scan Sistema Solare"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "Scan segnali audio, richieste di aiuto,
+parlare con altre navi,
+richieste di atterraggio"
+}
+
+[node name="Scan_Pianeta" type="Button" parent="Gui_Generale" groups=["Scienziato"]]
+visible = false
+anchor_left = 0.00606061
+anchor_top = 0.73
+anchor_right = 0.993939
+anchor_bottom = 0.93
+margin_left = 5.96046e-08
+text = "Scan Pianeta"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "Scan segnali audio, richieste di aiuto,
+parlare con altre navi,
+richieste di atterraggio"
+}
+
+[node name="Gui_Navigazione" type="ReferenceRect" parent="."]
+visible = false
+anchor_left = 0.0166667
+anchor_top = 0.0357143
+anchor_right = 0.5
+anchor_bottom = 0.417857
+margin_left = -9.53674e-07
+border_color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Titolo" type="Label" parent="Gui_Navigazione"]
+anchor_top = 0.261682
+anchor_right = 0.441379
+anchor_bottom = 0.728972
+margin_top = 1.90735e-06
+text = "Coordinate attuali
+
+Coordinate inserite "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Edit_X" type="LineEdit" parent="Gui_Navigazione"]
+anchor_left = 0.482759
+anchor_top = 0.523365
+anchor_right = 0.896552
+anchor_bottom = 0.75701
+text = "0"
+align = 1
+max_length = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_X" type="Label" parent="Gui_Navigazione"]
+anchor_left = 0.632759
+anchor_top = -0.046729
+anchor_right = 0.743104
+anchor_bottom = 0.186916
+custom_colors/font_color = Color( 0.878431, 0.0392157, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Pos_X" type="Label" parent="Gui_Navigazione"]
+anchor_left = 0.482759
+anchor_top = 0.224299
+anchor_right = 0.896552
+anchor_bottom = 0.457944
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Edit_Y" type="LineEdit" parent="Gui_Navigazione"]
+anchor_left = 0.931035
+anchor_top = 0.523365
+anchor_right = 1.34483
+anchor_bottom = 0.75701
+text = "0"
+align = 1
+max_length = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_Y" type="Label" parent="Gui_Navigazione"]
+anchor_left = 1.08103
+anchor_top = -0.046729
+anchor_right = 1.19138
+anchor_bottom = 0.186915
+margin_left = 3.05176e-05
+custom_colors/font_color = Color( 0.878431, 0.0392157, 0.0392157, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Y"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Pos_Y" type="Label" parent="Gui_Navigazione"]
+anchor_left = 0.931035
+anchor_top = 0.224299
+anchor_right = 1.34483
+anchor_bottom = 0.457943
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 250, 150 )
+frames = SubResource( 11 )
+animation = "radar"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Radar = SubResource( 12 )
+
+[connection signal="pressed" from="Gui_Generale/Scienziato" to="." method="_on_Scienziato_pressed"]
+[connection signal="pressed" from="Gui_Generale/Ingenere" to="." method="_on_Ingenere_pressed"]
+[connection signal="pressed" from="Gui_Generale/Combattimento" to="." method="_on_Combattimento_pressed"]
+[connection signal="pressed" from="Gui_Generale/Comunicazioni" to="." method="_on_Comunicazioni_pressed"]
+[connection signal="pressed" from="Gui_Generale/Scan_Sistema" to="." method="_on_Scan_Sistema_pressed"]
+[connection signal="pressed" from="Gui_Generale/Scan_Pianeta" to="." method="_on_Scan_Pianeta_pressed"]
